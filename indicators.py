@@ -88,16 +88,20 @@ async def run_bot(token, action: ChatAction):
     # Register /start for this specific bot instance
     app.add_handler(CommandHandler("start", start))
 
-    # Register the /start command so it appears in Telegram’s “/” menu
-    async def set_bot_commands():
-        await app.bot.set_my_commands([BotCommand(command="start", description="Show welcome & buttons")])
-    # Schedule setting commands before launching polling
-    app.post_init(set_bot_commands)
-
-    print(f"Bot with token {token[:8]}... is running as @{await app.bot.get_me().username}")
+    # Initialize the bot (this allows us to fetch `bot.get_me()` and set commands)
     await app.initialize()
+
+    # Now set /start in the Telegram commands menu
+    await app.bot.set_my_commands([BotCommand(command="start", description="Show welcome & buttons")])
+
+    # Print out the username so you know which bot is running
+    bot_user = await app.bot.get_me()
+    print(f"Bot with token {token[:8]}... is running as @{bot_user.username}")
+
+    # Finally, start polling
     await app.start()
     await app.updater.start_polling()
+
     return app
 
 # ------------- Main entrypoint -------------
