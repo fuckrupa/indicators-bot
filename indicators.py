@@ -70,7 +70,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         [
             InlineKeyboardButton(
                 text="Add Me To Your Group",
-                url="https://t.me/YOUR_BOT_USERNAME?startgroup=true",
+                url="https://t.me/ZoyaArwaBot?startgroup=true",
             ),
         ],
     ]
