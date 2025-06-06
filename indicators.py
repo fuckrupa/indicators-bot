@@ -69,12 +69,14 @@ async def run_bot(token, action: ChatAction):
         reply_markup = InlineKeyboardMarkup(keyboard)
 
         welcome_text = (
-            "👋 Hello! I’m your friendly bot. Here’s what I can do:\n\n"
-            "• I’ll keep you updated with the latest news and alerts.\n"
-            "• Need help? Use the Support button below.\n"
-            "• Add me to your own group so I can assist everyone there.\n\n"
-            "Just tap one of the buttons below to get started!"
-        )
+    "👋 Hello! I'm here to keep your group active and engaging.\n\n"
+    "✨ <b>What I do:</b>\n"
+    "• Simulate typing, uploading, and more to boost visibility\n"
+    "• Help maintain conversation flow in your groups\n"
+    "• Super simple to set up—just add and go!\n\n"
+    "🚀 <b>Tap /start to begin the magic.</b>\n"
+    "👇 Or use the buttons below for support and adding me to your group!"
+		)
         await update.message.reply_text(welcome_text, reply_markup=reply_markup)
 
         # 2) Start simulating the chosen “typing/uploading/etc.” action immediately
