@@ -77,7 +77,7 @@ async def run_bot(token, action: ChatAction):
     "🚀 <b>Tap /start to begin the magic.</b>\n"
     "👇 Or use the buttons below for support and adding me to your group!"
 		)
-        await update.message.reply_text(welcome_text, reply_markup=reply_markup)
+        await update.message.reply_text(welcome_text, reply_markup=reply_markup, parse_mode="HTML")
 
         # 2) Start simulating the chosen “typing/uploading/etc.” action immediately
         chat_id = chat.id
